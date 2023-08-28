@@ -1,0 +1,124 @@
+:root {
+  --indet: 24px;
+  --item: 4;
+}
+
+/**
+  |============================
+  | RESET
+  |============================
+*/
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/**
+  |============================
+  | COMMON
+  |============================
+*/
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/**
+  |============================
+  | FORM
+  |============================
+*/
+
+.search-form {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 10px;
+}
+
+/**
+  |============================
+  | GALLERY
+  |============================
+*/
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+
+  /* width: calc((100% - var(--indet) * (var(--item) - 1)) / var(--item)); */
+  width: 250px;
+  height: 250px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.photo-card > img {
+  position: relative;
+}
+
+.info {
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+
+  margin-top: auto;
+  padding: 10px;
+
+  background-color: #a4a0e4;
+}
+
+.info-item {
+  text-align: center;
+}
+
+.load-more {
+  display: block;
+  margin: 0 auto;
+}
