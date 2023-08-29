@@ -38,17 +38,13 @@ function onSearch(event) {
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
         );
-        return;
-      }
-
-      if (!refs.galleryBox) {
+        refs.galleryBox.innerHTML = '';
+        refs.btnLoad.classList.add('visually-hidden');
         return;
       }
 
       refs.galleryBox.innerHTML = '';
       renderGallery(data.hits);
-
-      totalPages = Math.ceil(data.totalHits / PER_PAGE);
 
       const { height: cardHeight } = document
         .querySelector('.gallery')
@@ -59,10 +55,15 @@ function onSearch(event) {
         behavior: 'smooth',
       });
 
+      totalPages = Math.ceil(data.totalHits / PER_PAGE);
+
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       refs.btnLoad.classList.remove('visually-hidden');
+      if (data.totalHits <= PER_PAGE) {
+        refs.btnLoad.classList.add('visually-hidden');
+      }
     })
-    .catch(error => console.log(error))
+    .catch(error => console.error(error))
     .finally(() => {
       refs.form.reset();
     });
